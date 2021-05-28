@@ -1,11 +1,11 @@
 #include "test.h"
-#define BUCKET_HASH 8
+#define CELL_HASH 8
 
 Hash::Hash(int b)	
 {
-    this->BUCKET = b;
-    table= new list<int>[BUCKET];
-    word = new list<string>[BUCKET];
+    this->CELL = b;
+    table= new list<int>[CELL];
+    word = new list<string>[CELL];
 }
 
 void Hash::search(string _word) {
@@ -33,16 +33,16 @@ list<string> delete_list_elem(list<string> word, int _key)
 int i=0;
 	list<string>::iterator it = word.begin();
 	while(i<=_key)
-		{
-		if(i==_key)
-		{
+	  {
+	     if(i==_key)
+	        {
 		cout<< *it <<" ";
 		word.remove(*it);
 		cout<<"\n deleted"<<endl;
 		}
-	it++;
-	i++;
-	}
+	  it++;
+	  i++;
+	  }
 return word;
 }
 
@@ -50,9 +50,8 @@ return word;
 void Hash::_delete(string _word_2){
 cout<<endl;
 int _key=0,check=0,l=0;
-	_key=_word_2.length();
-	_key=hashFunction(_key);
-
+_key=_word_2.length();
+_key=hashFunction(_key);
 		for(auto y:word[_key]){
 			y=y.erase(y.size()-1);
 			if(_word_2.compare(y)==0){
@@ -78,7 +77,7 @@ void Hash::insertItem(string sumbol,int key)
 
 void Hash::displayHash() {	// функция для отображения хеш-таблицы
 int check_2=0;
-  for (int i = 0; i < BUCKET; i++) {
+  for (int i = 0; i < CELL; i++) {
     cout << i;
     for (auto x : word[i]){
     	if(check_2==0){
@@ -100,7 +99,7 @@ int main()
 	int *num;
 	char c;
 	std::string str;
-	  Hash h(BUCKET_HASH);   // количество сегментов в хеш-таблице 
+	  Hash h(CELL_HASH);   // количество сегментов в хеш-таблице 
   cout << "Please type some lines of text. Enter a dot (.) to finish:\n";
   do{
     c = std::cin.get();
@@ -119,23 +118,15 @@ int main()
   
   h.displayHash();
   char s;
-  	string _word;
-  	 // do{
-   	cout<<"Введите слово, которое нужно найти в хеш-таблице "<<endl;
-   	cin>>_word;
-  h.search(_word);
- //cout<<"Введите точку, если хотите окончить ввод слов "<<endl;
- // cin>>s;
-  // }while (s!='.');
- 		string _word_2;
- 		// do{
-  	cout<<"Введите слово, которое нужно удалить "<<endl;
-   	cin>>_word_2;
-   	h._delete(_word_2);
-   	  h.displayHash();
-   	  //cout<<"Введите точку, если хотите окончить ввод слов "<<endl;
- // cin>>s;
-  // }while (s!='.');
-   	  free(num);
+  string _word;
+   cout<<"Введите слово, которое нужно найти в хеш-таблице "<<endl;
+   cin>>_word;
+   h.search(_word);
+ string _word_2;
+   cout<<"Введите слово, которое нужно удалить "<<endl;
+   cin>>_word_2;
+   h._delete(_word_2);
+   h.displayHash();
+  free(num);
   return 0;
 }
