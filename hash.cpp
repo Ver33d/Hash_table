@@ -74,7 +74,7 @@ table[index].push_back(key);
 word[index].push_back(sumbol);
 }
 
-void Hash::displayHash() {	// функция для отображения хеш-таблицы
+void Hash::displayHash() {		// функция для отображения хеш-таблицы
 int check_2=0;
   for(int i = 0; i < CELL; i++) {
       cout << i;
@@ -98,7 +98,7 @@ int *values=NULL;
 int *num;
 char c;
 std::string str;
-  Hash h(CELL_HASH);   // количество сегментов в хеш-таблице 
+  Hash h(CELL_HASH);  			// количество сегментов в хеш-таблице 
 cout << "Please type some lines of text. Enter a dot (.) to finish:\n";
  do{
     c = std::cin.get();
