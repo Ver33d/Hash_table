@@ -9,24 +9,24 @@ Hash::Hash(int b)
 }
 
 void Hash::search(string _word) {
-cout<<endl;
-int _key=0,check=0,i=0,p;
-_key=_word.length();
-_key=hashFunction(_key);
-i=_key;
+    cout<<endl;
+	int _key=0,check=0,i=0,p;
+	_key=_word.length();
+	_key=hashFunction(_key);
+	i=_key;
 	for(auto x:word[_key])
-	{
-	x=x.erase(x.size()-1);
-	if(_word.compare(x)==0)
-	  {
-	   cout<<"Искомое слово : "<<x<< " И стоит оно в строке № "<<i<<endl;
-	   check=1;
-	   break;
-	  }
-	}
-  if(check==0){
-     cout<<" - the word was not found in this cell "<<endl;
-  }
+	   {
+	    x=x.erase(x.size()-1);
+		if(_word.compare(x)==0)
+		  {
+		   cout<<"Искомое слово : "<<x<< " И стоит оно в строке № "<<i<<endl;
+		   check=1;
+		   break;
+		  }
+		}
+	if(check==0){
+	    cout<<" - the word was not found in this cell "<<endl;
+    }
 }
 
 list<string> delete_list_elem(list<string> word, int _key)
