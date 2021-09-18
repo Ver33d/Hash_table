@@ -3,17 +3,17 @@
 
 Hash::Hash(int b)	
 {
-    this->CELL = b;
-    table= new list<int>[CELL];
-    word = new list<string>[CELL];
+this->CELL = b;
+table= new list<int>[CELL];
+word = new list<string>[CELL];
 }
 
 void Hash::search(string _word) {
-    cout<<endl;
-	int _key=0,check=0,i=0,p;
-	_key=_word.length();
-	_key=hashFunction(_key);
-	i=_key;
+cout<<endl;
+int _key=0,check=0,i=0,p;
+_key=_word.length();
+_key=hashFunction(_key);
+i=_key;
 	for(auto x:word[_key])
 	   {
 	    x=x.erase(x.size()-1);
@@ -98,7 +98,7 @@ int *values=NULL;
 int *num;
 char c;
 std::string str;
-  Hash h(CELL_HASH);  			// количество сегментов в хеш-таблице 
+Hash h(CELL_HASH);  			// количество сегментов в хеш-таблице 
 cout << "Please type some lines of text. Enter a dot (.) to finish:\n";
  do{
     c = std::cin.get();
@@ -114,8 +114,7 @@ cout << "Please type some lines of text. Enter a dot (.) to finish:\n";
        count=0;
     }
   }while (c!='.');
-  
-  h.displayHash();
+h.displayHash();
 char s;
 string _word;
 cout<<"Введите слово, которое нужно найти в хеш-таблице "<<endl;
