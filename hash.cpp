@@ -8,14 +8,15 @@ table= new list<int>[CELL];
 word = new list<string>[CELL];
 }
 
-void Hash::search(string _word) {
+void Hash::search(string _word)
+{
 cout<<endl;
 int _key=0,check=0,i=0,p;
 _key=_word.length();
 _key=hashFunction(_key);
 i=_key;
 	for(auto x:word[_key])
-	   {
+		{
 	    x=x.erase(x.size()-1);
 		if(_word.compare(x)==0)
 		  {
@@ -24,9 +25,8 @@ i=_key;
 		   break;
 		  }
 		}
-	if(check==0){
-	    cout<<" - the word was not found in this cell "<<endl;
-    }
+	if(check==0)
+		cout<<" - the word was not found in this cell "<<endl;
 }
 
 list<string> delete_list_elem(list<string> word, int _key)
@@ -47,14 +47,17 @@ list<string>::iterator it = word.begin();
 return word;
 }
 
-void Hash::_delete(string _word_2){
+void Hash::_delete(string _word_2)
+{
 cout<<endl;
 int _key=0,check=0,l=0;
 _key=_word_2.length();
 _key=hashFunction(_key);
-	for(auto y:word[_key]){
+	for(auto y:word[_key])
+	{
 	    y=y.erase(y.size()-1);
-		if(_word_2.compare(y)==0){
+		if(_word_2.compare(y)==0)
+		{
 		   cout<<"Удаляемое слово == "<<y<<endl;
 		   word[_key]= delete_list_elem(word[_key], check);
 		   l=1;
@@ -74,21 +77,25 @@ table[index].push_back(key);
 word[index].push_back(sumbol);
 }
 
-void Hash::displayHash() {		// функция для отображения хеш-таблицы
+void Hash::displayHash() // функция для отображения хеш-таблицы
+{		
 int check_2=0;
-  for(int i = 0; i < CELL; i++) {
+  for(int i = 0; i < CELL; i++) 
+	{
       cout << i;
-      for(auto x : word[i]){
-    	if(check_2==0){
-     	   cout << " --> " << x;
-     	   check_2=1;
-     	   }
+      for(auto x : word[i])
+		{
+		  if(check_2==0)
+			{
+     	     cout << " --> " << x;
+     	     check_2=1;
+     	    }
      	else
      	   cout << "      " << x;
-      }
+        }
       check_2=0;
       cout<<endl;
-  }
+    }
 }
 
 int main()
@@ -104,7 +111,8 @@ cout << "Please type some lines of text. Enter a dot (.) to finish:\n";
     c = std::cin.get();
     str += c;
     count++;
-    if(c=='\n'){
+    if(c=='\n')
+	{
        counter++;
        num=(int*)realloc(values,counter*sizeof(int));
        count-=1;
