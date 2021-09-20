@@ -11,7 +11,7 @@ word = new list<string>[CELL];
 void Hash::search(string _word)
 {
 cout<<endl;
-int _key=0,check=0,i=0,p;
+int _key=0,check=0,i=0,p=0;
 _key=_word.length();
 _key=hashFunction(_key);
 i=_key;
