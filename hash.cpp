@@ -35,7 +35,6 @@ int i=0;
 list<string>::iterator it = word.begin();
 	while(i<=_key)
 	{
-		
 	 if(i==_key)
 	   {
 	    cout<< *it <<" ";
