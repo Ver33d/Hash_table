@@ -15,7 +15,6 @@ int _key=0,check=0,i=0,p=0;
 _key=_word.length();
 _key=hashFunction(_key);
 i=_key;
-
 	for(auto x:word[_key])
 		{
 	    x=x.erase(x.size()-1);
